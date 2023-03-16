@@ -9,6 +9,7 @@ const app = createApp({
                 eventosFiltrados: undefined,
                 valorCheck: [],
                 valorTexto: '',
+                cargando: true
             }
         },
         created(){
@@ -22,7 +23,8 @@ const app = createApp({
             
             this.eventosFiltrados = this.fitroArray(this.eventos)
             console.log(this.eventosFiltrados)
-
+            
+            this.cargando = false
             })
 
         },

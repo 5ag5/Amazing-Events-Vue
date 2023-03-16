@@ -9,6 +9,7 @@ const app = createApp({
                 eventosFiltrados: undefined,
                 valorCheck: [],
                 valorTexto: '',
+                cargando: true
             }
         },
         created(){
@@ -19,8 +20,9 @@ const app = createApp({
                     this.eventosCards = events
 
                     this.eventosFiltrados =  Array.from(new Set(events.map(elemento => elemento.category)))
+                    
+                    this.cargando = false
                     })
-
         },
 
     methods: {

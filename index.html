@@ -82,8 +82,8 @@
         </div>
     </div>
     <div class="contenedorCardsHome" id="contenedorCartas">
-      <template v-for="evento of eventosCards">
-        <div class="card" style="width: 18rem;">
+      <template v-if="eventosCards.length >0">
+        <div v-for="evento of eventosCards" class="card" style="width: 18rem;">
           <img v-bind:src="evento.image" class="card-img-top" alt="alt1">
           <div class="card-body">
             <h5 class="card-title">{{evento.name}}</h5>
@@ -91,6 +91,12 @@
             <a v-bind:href="'details.html?id='+evento._id" class="btn btn-primary">Go to Details</a>          </div>
         </div>
       </template>
+      <template v-else-if="cargando">
+        <h5>loading...</h5>
+      </template>
+      <template v-else>
+        <h5> search has no match</h5>
+      </template> 
     </div>
   </main>
     <footer>

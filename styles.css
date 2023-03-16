@@ -283,12 +283,16 @@ label{
     font-size: medium;
 }
 
+thead{
+    background-color: rgb(189, 46, 132);
+}
+
 #app{
     display: flex;
+    flex-wrap: wrap !important;
     align-content: center;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     width: 100vw;
     object-fit:cover;
 }
@@ -303,7 +307,7 @@ label{
 }
 
 tr, td{
-    border: 1px solid black;
+    border: 1px solid rgb(185, 185, 185);
     width: 20vh;
 }
 
@@ -322,18 +326,23 @@ th{
 
 table{
     font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(235, 235, 235);
+    border: none;
 }
 
-#contenedorCartas{
+/* #contenedorCartas{
     width: 100vh;
-}
+    
+} */
 
 #titleTable{
     font-weight: bold;
 }
 
 .img-fluid{
+    display: flex;
     object-fit: cover;
+    align-content: center !important;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 424px) {

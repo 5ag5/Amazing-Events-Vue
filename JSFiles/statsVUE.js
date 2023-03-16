@@ -19,9 +19,6 @@ const app = createApp({
             this.eventosStats = Array.from(evento.events)
             this.fechaActual = evento.currentDate
 
-            // console.log(this.eventosStats)
-            // console.log(this.fechaActual)
-
             const cardsPasado = this.filtrarEventosPasado(this.eventosStats, this.fechaActual)
             const cardsFuturo = this.filtrarEventosFuturo(this.eventosStats, this.fechaActual)
             
@@ -29,26 +26,17 @@ const app = createApp({
             this.eventosEstadisticas[1] = this.eventoPorcentajeMenosAtendido(cardsPasado)
             this.eventosEstadisticas[2] = this.eventoConMasCapacidad(cardsPasado)
 
-            // console.log(this.eventosEstadisticas)
-
             const UpcomingEstadisticas = this.filtroCategoriaEvento(cardsFuturo)
             const PastEstadisticas = this.filtroCategoriaEvento(cardsPasado)
-
-            // console.log(cardsPasado)
-            console.log(cardsFuturo)
 
             for(let categoria of PastEstadisticas){
                 this.arregloObjetosPasado.push(this.construirArregloDeObjetos(cardsPasado,categoria))   
             }
 
-
             for(let categoria of UpcomingEstadisticas ){
                this.arregloObjetosFuturo.push(this.construirArregloDeObjetosFuturo(cardsFuturo, categoria))
 
             }
-
-           console.log(this.arregloObjetosFuturo)
-            //this.arregloObjetosFuturo = arregloObjetosFuturo11
 
             })
 
@@ -169,16 +157,6 @@ const app = createApp({
             return sumaResultados[0]
         },
 
-        crearElementoFutureYPasado(lista){
-            let plantilla = []
-            console.log(lista)
-            for(let i =0; i < lista.length;i++){
-                plantilla.push(lista[i]);
-            }
-            
-            return plantilla
-        }
-
     },
 
-}).mount('#app');
+}).mount('#app4');
