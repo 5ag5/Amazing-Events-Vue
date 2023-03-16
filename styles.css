@@ -14,6 +14,11 @@ main{
     align-content: space-around;
 }
 
+#appCartas{
+    display: flex;
+    flex-direction: row;
+}
+
 footer{
     min-height: 5vh;
     display: flex;
