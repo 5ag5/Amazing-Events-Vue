@@ -64,60 +64,37 @@
         </button>
       </div>
     </header>
-  <main class="bg-light p-0">
+  <main class="bg-light p-0" id="app1">
     <div class="ChecksYBusqueda">
       <div class="ChecksYBusqueda2" id="checksID3">
-        <!-- <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Viajes
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Conciertos
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Culturales
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Cine
-          </label> -->
-        <!-- </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Deportes
-          </label>
-        </div> -->
+        <template v-for="elemento of eventosFiltrados">
+          <div class="form-check">
+            <input class="form-check-input" name="inputBusqueda" v-bind:value='elemento' v-model="valorCheck" type="checkbox" id="flexCheckChecked" v-on:change="filtroCheck">
+            <label class="form-check-label" for="flexCheckDefault">
+              {{elemento}}
+            </label>
+          </div>
+        </template> 
       </div>
-        <div class="searchAndTxt">
-          <input type="text" id="textSearch" name="">
-            <a href="#" id="botonBuscarTxt2"><img src="./imagenes/incono_buscar.png" alt="icono-buscar" id="botonBuscarTxt"></a>
+        <div class="searchAndTxt" id="searchAndTxtID">
+          <input type="text" id="textSearch" v-model="valorTexto">
+          <a href="#" id="botonBuscarTxt2" v-on:click="filtroCruzadoCards">
+            <img src="./imagenes/incono_buscar.png" alt="icono-buscar" id="botonBuscarTxt">
+          </a>
         </div>
     </div>
-        <div class="contenedorCardsHome" id="contenedorCartas">
-        <div class="card mb-3" style="max-width: 100%;" id="cardMarathon">
-            <div class="row g-0" id="contenedorCard">
-              <div class="col-md-4" id="fotoCard">
-                <img src="./imagenes/Maraton3.jpg" class="img-fluid rounded-start" alt="..." id="imgMaraton">
-              </div>
-              <div class="col-md-8" id="textCard">
-                <div class="card-body" id="divCardBody">
-                  <h5 class="card-title">Media Maraton de Bogota</h5>
-                  <p class="card-text">La Media Marathon de Bogota, se corrio el dia 06 de Febrero del 2023. Que se corrio por 22Km.</p>
-                </div>
-              </div>
+      <div class="contenedorCardsHome" id="contenedorCartas">
+        <template v-for="evento of eventosCards">
+          <div v-if="evento.date < currentDateCards" class="card" style="width: 18rem;">
+            <img v-bind:src="evento.image" class="card-img-top" alt="alt1" id="detailsImg">
+            <div class="card-body">
+              <h5 class="card-title">{{evento.name}}</h5>
+              <p class="card-text">{{evento.description}}</p>
+              <a v-bind:href= "'details.html?id='+ evento._id" class="btn btn-primary">Go to Details</a>
             </div>
-        </div>
-        </div>
+          </div>
+        </template>
+      </div>
   </main>
     <footer>
         <div class="divLogos">
@@ -128,7 +105,9 @@
         <h5 id="cohort44-45">Cohort 44/45</h5>
       </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  <script src="./JSFiles/datos.js"></script>
-  <script src="./JSFiles/PastEvents.js"></script>
+  <!-- <script src="./JSFiles/datos.js"></script>
+  <script src="./JSFiles/PastEvents.js"></script> -->
+  <script src="./JSFiles/message.txt"></script>
+  <script src="JSFiles/pastEventsVUE.js"></script>
 </body>
 </html>

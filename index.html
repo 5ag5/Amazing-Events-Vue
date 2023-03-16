@@ -88,8 +88,7 @@
           <div class="card-body">
             <h5 class="card-title">{{evento.name}}</h5>
             <p class="card-text">{{evento.description}}</p>
-            <a href="#" class="btn btn-primary">Go to Details</a>
-          </div>
+            <a v-bind:href="'details.html?id='+evento._id" class="btn btn-primary">Go to Details</a>          </div>
         </div>
       </template>
     </div>

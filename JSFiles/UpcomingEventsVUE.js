@@ -13,17 +13,26 @@ const app = createApp({
         },
         created(){
             fetch(url)
-                    .then(response => response.json())
-                    .then(({events}) => {
-                    this.eventos = events
-                    this.eventosCards = events
+            .then(response => response.json())
+            .then((evento) => {
+            console.log(evento)
+            this.eventos = Array.from(evento.events)
+            this.eventosCards = Array.from(evento.events)
+            this.currentDateCards = evento.currentDate
+            
+            this.eventosFiltrados = this.fitroArray(this.eventos)
+            console.log(this.eventosFiltrados)
 
-                    this.eventosFiltrados =  Array.from(new Set(events.map(elemento => elemento.category)))
-                    })
+            })
 
         },
-
+    
     methods: {
+
+    fitroArray(lista){
+    return arrayTemporal =  Array.from(new Set(lista.map(elemento => elemento.category)))
+    },
+
     filtroCheck(){
         if(this.valorCheck.length === 0){
             this.eventosCards = this.eventos
@@ -55,15 +64,5 @@ const app = createApp({
         }
     },
 },
-
-            // filtroBarraTexto(){
-            //     console.log(this.valorTexto)
-            //     if(this.valorTexto === " "){
-            //         return  this.eventosCards = this.eventos
-            //         } else{
-            //             return this.eventosCards = this.eventos.filter(evento => evento.name.toLowerCase()
-            //             .includes(this.valorTexto))
-            //         }
-            // },
 
 }).mount('#app1');
