@@ -90,8 +90,10 @@
             <div class="card-body">
               <h5 class="card-title">{{evento.name}}</h5>
               <p class="card-text">{{evento.description}}</p>
-              <a v-bind:href= "'details.html?id='+ evento._id" class="btn btn-primary">Go to Details</a>
-            </div>
+              <div id="priceCard">
+                <p>Price: ${{evento.price}}</p>
+                <a v-bind:href="'details.html?id='+evento._id" class="btn btn-primary">Go to Details</a>
+              </div>
           </div>
         </template>
         <template v-else-if="cargando">

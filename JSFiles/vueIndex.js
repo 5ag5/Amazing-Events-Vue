@@ -19,13 +19,18 @@ const app = createApp({
                     this.eventos = events
                     this.eventosCards = events
 
-                    this.eventosFiltrados =  Array.from(new Set(events.map(elemento => elemento.category)))
+                    this.eventosFiltrados = this.fitroArray(this.eventos)//Array.from(new Set(events.map(elemento => elemento.category)))
                     
                     this.cargando = false
                     })
         },
 
     methods: {
+    
+    fitroArray(lista){
+        return arrayTemporal =  Array.from(new Set(lista.map(elemento => elemento.category)))
+    },
+
     filtroCheck(){
         if(this.valorCheck.length === 0){
             this.eventosCards = this.eventos
